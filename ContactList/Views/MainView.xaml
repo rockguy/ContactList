@@ -1,0 +1,30 @@
+﻿<Window x:Class="ContactList.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:ContactList.Commands"
+        xmlns:self="clr-namespace:ContactList.ViewModels"
+        xmlns:d="clr-namespace:ContactList.Views"
+    Title="Main Window" Height="400" Width="350" Closing="Window_Closing">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <TextBlock Text="Список контактов" HorizontalAlignment="Center" DockPanel.Dock="Top" Focusable="True"/>
+            <StackPanel Name="stackPanel" DockPanel.Dock="Bottom">
+                <TextBlock Name="Textb" Text="Для выбора нескольких элементов, необходимо их выделить, нажав клавишу Left Ctrl !" TextAlignment="Center" TextWrapping="Wrap" />
+                            <Button Name="Add" Content="Добавить" Grid.Column="0" Margin="10 5" Click="Add_Click"/>
+                            <Button Name="Edit" Content="Изменить" Grid.Column="1" Margin="10 5" Click="Edit_Click" IsEnabled="False" />
+                            <Button Name="Delete" Content="Удалить" Grid.Column="2" Margin="10 5" Click="Delete_Click"  IsEnabled="False"/>
+                     </StackPanel>
+                    
+            <TreeView Name="treeView" Grid.Column="2" SelectedItemChanged="treeView_SelectedItemChanged">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type self:MainViewModel}" ItemsSource="{Binding Items}">
+                        <TextBlock Text="{Binding Symbol}"/>
+                    </HierarchicalDataTemplate>
+                    <HierarchicalDataTemplate  DataType="{x:Type self:ContactViewModel}" ItemsSource="{Binding ContactsList}">
+                        <TextBlock  Text="{Binding FIO}" MouseDown="TextBlock_MouseDown" />
+                    </HierarchicalDataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,26 @@
+﻿<Window x:Class="ContactList.Views.Detail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Detail" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="71*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Карточка контакта" HorizontalAlignment="Center"/>
+        <TextBlock Text="ФИО" Margin="21,15,0,25"  HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1"/>
+        <TextBox Name="FIO" Grid.Column="0" Grid.Row="1" Margin="70 15 12 15"/>
+        <TextBlock Text="Телефон" Margin="10,15,0,25"  HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2"/>
+        <TextBox Name ="Phone" Grid.Column="0" Grid.Row="2" Margin="70 15 12 15"/>
+        <TextBlock Text="Email" Margin="20,15,0,25"  HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3"/>
+        <TextBox Name ="Email" Grid.Column="0" Grid.Row="3" Margin="70 15 12 15"/>
+        <Button Name="Save" Content="Сохранить" Grid.Row="4" HorizontalAlignment="Left" Margin="10 20" MinWidth="100" Click="Save_Click"/>
+        <Button Name="Cancel" Content="Отмена" Grid.Row="4" HorizontalAlignment="Right" Margin="10 20" MinWidth="100" Click="Cancel_Click"/>
+    </Grid>
+</Window>
